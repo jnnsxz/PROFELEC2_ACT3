@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KONEKTIFY - Professional Networking Platform</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #ffffff;
+            --secondary: #1a237e;
+            --accent: #3949ab;
+            --text: #333333;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --card-bg: #ffffff;
+        }
+
+        .dark-mode {
+            --primary: #1a237e;
+            --secondary: #ffffff;
+            --accent: #3949ab;
+            --text: #ffffff;
+            --shadow: rgba(255, 255, 255, 0.1);
+            --card-bg: #2a337e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        body {
+            background: var(--primary);
+            color: var(--text);
+        }
+
+        .navbar {
+            background: var(--card-bg);
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 6px var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--secondary);
+            text-decoration: none;
+        }
+
+        .search-bar {
+            flex: 0 0 40%;
+            position: relative;
+        }
+
+        .search-bar input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border-radius: 25px;
+            border: none;
+            background: var(--primary);
+            color: var(--text);
+            box-shadow: inset 3px 3px 5px var(--shadow),
+                       inset -3px -3px 5px rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-menu {
+            background: var(--card-bg);
+            padding: 1rem 2rem;
+            margin-top: 4.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            box-shadow: 0 4px 6px var(--shadow);
+        }
+
+        .nav-item {
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            cursor: pointer;
+            background: var(--card-bg);
+            box-shadow: 5px 5px 10px var(--shadow),
+                       -5px -5px 10px rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .main-content {
+            margin-top: 8rem;
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 15px;
+            background: var(--card-bg);
+            box-shadow: 8px 8px 15px var(--shadow),
+                       -8px -8px 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        .suggestion-card {
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 10px;
+            background: var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 4px 4px 8px var(--shadow);
+        }
+
+        .connect-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            border: none;
+            background: var(--accent);
+            color: #ffffff;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .connect-btn:hover {
+            transform: scale(1.05);
+        }
+
+        .startup-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .startup-card {
+            padding: 1.5rem;
+            border-radius: 15px;
+            background: var(--primary);
+            box-shadow: 5px 5px 10px var(--shadow);
+        }
+
+        .workspace-item {
+            padding: 1rem;
+            margin: 0.5rem 0;
+            border-radius: 10px;
+            background: var(--primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            padding: 1rem;
+            border-radius: 50%;
+            background: var(--accent);
+            color: #ffffff;
+            cursor: pointer;
+            box-shadow: 4px 4px 8px var(--shadow);
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .search-bar {
+                flex: 0 0 60%;
+            }
+
+            .startup-cards {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="logo">KONEKTIFY</a>
+        <div class="search-bar">
+            <input type="text" placeholder="Search connections, startups, workspaces...">
+        </div>
+    </nav>
+
+    <div class="nav-menu">
+        <div class="nav-item">Profile</div>
+        <div class="nav-item">SmartMatch</div>
+        <div class="nav-item">VenturePool</div>
+        <div class="nav-item">Workspaces</div>
+    </div>
+
+    <main class="main-content">
+        <section class="section" data-aos="fade-up">
+            <h2 class="section-title">AI Suggestions</h2>
+            <div class="suggestion-card">
+                <div>
+                    <h3>Meet Joanna Gulle, a fresh IT graduate.</h3>
+                    <p>Looking for a Tech Company for internship.</p>
+                </div>
+                <button class="connect-btn">Connect</button>
+            </div>
+            <div class="suggestion-card">
+                <div>
+                    <h3>BISUTech Innovators</h3>
+                    <p>Join this trending workspace!</p>
+                </div>
+                <button class="connect-btn">Join</button>
+            </div>
+        </section>
+
+        <section class="section" data-aos="fade-up">
+            <h2 class="section-title">Live VenturePool Pitches</h2>
+            <div class="startup-cards">
+                <div class="startup-card">
+                    <h3>EcoDrone</h3>
+                    <p>AI for reforestation</p>
+                    <p>20 backers</p>
+                    <button class="connect-btn">Learn More</button>
+                </div>
+                <div class="startup-card">
+                    <h3>HealthTech</h3>
+                    <p>Revolutionary healthcare solutions</p>
+                    <p>20 backers</p>
+                    <button class="connect-btn">Learn More</button>
+                </div>
+                <div class="startup-card">
+                    <h3>SmartCity Solutions</h3>
+                    <p>Urban infrastructure optimization</p>
+                    <p>20 backers</p>
+                    <button class="connect-btn">Learn More</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" data-aos="fade-up">
+            <h2 class="section-title">Your Active Workspaces</h2>
+            <div class="workspace-item">
+                <div>
+                    <h3>Blockchain Dev Team</h3>
+                    <p>3 new messages</p>
+                </div>
+                <button class="connect-btn">Open</button>
+            </div>
+            <div class="workspace-item">
+                <div>
+                    <h3>Digital Marketing Hub</h3>
+                    <p>Active now</p>
+                </div>
+                <button class="connect-btn">Open</button>
+            </div>
+        </section>
+    </main>
+
+    <div class="theme-toggle">
+        <i class='bx bx-moon'></i>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        const themeToggle = document.querySelector('.theme-toggle');
+        const body = document.body;
+        const themeIcon = document.querySelector('.theme-toggle i');
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+            themeIcon.classList.toggle('bx-moon');
+            themeIcon.classList.toggle('bx-sun');
+        });
+
+        // Add smooth hover effect to cards
+        document.querySelectorAll('.startup-card, .workspace-item, .suggestion-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
